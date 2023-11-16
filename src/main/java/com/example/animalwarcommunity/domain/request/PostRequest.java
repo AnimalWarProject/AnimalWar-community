@@ -8,6 +8,5 @@ import java.time.LocalDateTime;
 public class PostRequest {
     private String title;
     private String content;
-    private LocalDateTime createAt;
     private String postImage;
 }
