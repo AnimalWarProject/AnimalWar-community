@@ -1,36 +1,37 @@
 package com.example.animalwarcommunity.domain.entity;
 
+import com.example.animalwarcommunity.repository.ReviewRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GeneratedColumn;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name="posts")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Getter
-@Setter
-public class Post {
+public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long postId;
+    private Long replyId;
 
-    private String userId;
-    private String title;
+
+    @ManyToOne
+    @JsonIgnoreProperties("replyList")
+    private Review review;
+
+    private String nickName;
+
     private String content;
+
+    private String profileImage;
 
     @CreationTimestamp
     private LocalDateTime createAt;
-    private String postImage;
-
-    @OneToMany(mappedBy = "post")
-    @JsonIgnoreProperties("post")
-    private List<Review> reviewList;
 }
