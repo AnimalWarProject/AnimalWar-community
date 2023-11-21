@@ -16,7 +16,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
             "com.example.animalwarcommunity.domain.response" +
             ".PostResponse(p.postId,p.userId, p.title,p.content,p.createAt,p.postImage) " +
             "from Post p " +
+            "where p.title like '%'||:content||'%' " +
+            "or p.content like '%'||:content||'%' " +
            " order by p.createAt desc"
            )
-   Page<PostResponse> findAll(PageRequest request);
+   Page<PostResponse> findAll(PageRequest request,String content);
 }

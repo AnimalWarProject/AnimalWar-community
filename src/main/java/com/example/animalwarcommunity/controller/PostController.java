@@ -40,10 +40,18 @@ public class PostController {
                     required = false,
                     defaultValue = "10",
                     name = "size"
-            ) Integer size
+            ) Integer size,
+            @RequestParam(
+                    required = false,
+                    defaultValue = "",
+                    name = "content"
+            ) String content
     ){
-        return postService.getAllPost(PageRequest.of(page,size));
+        return postService.getAllPost(PageRequest.of(page,size),content);
     }
+
+
+
 
     @PostMapping(value = "/create", consumes = "application/json")
     public ResponseEntity<String> createPost(@RequestBody PostRequest postRequest,

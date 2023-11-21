@@ -63,8 +63,8 @@ public class PostService {
         return optionalPost.orElseThrow(() -> new RuntimeException("No Post"));
     }
 
-    public Page<PostResponse> getAllPost(PageRequest pageRequest) {
-        return postRepository.findAll(pageRequest);
+    public Page<PostResponse> getAllPost(PageRequest pageRequest,String content) {
+        return postRepository.findAll(pageRequest,content);
     }
 
     public void writeReview(Long postId, String nickname, ReviewRequest req){
