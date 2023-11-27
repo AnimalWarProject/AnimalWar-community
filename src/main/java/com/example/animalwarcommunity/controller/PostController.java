@@ -7,18 +7,12 @@ import com.example.animalwarcommunity.domain.request.PostRequest;
 import com.example.animalwarcommunity.domain.request.PostUpdateRequest;
 import com.example.animalwarcommunity.domain.request.ReviewRequest;
 import com.example.animalwarcommunity.domain.response.PostResponse;
-import com.example.animalwarcommunity.repository.PostRepository;
 import com.example.animalwarcommunity.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.print.Pageable;
-import java.util.List;
-
 
 @RestController
 @RequiredArgsConstructor
