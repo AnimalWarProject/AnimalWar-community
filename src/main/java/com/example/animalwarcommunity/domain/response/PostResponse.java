@@ -24,7 +24,7 @@ public class PostResponse {
     private String title;
     private String content;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul") //날짜 포멧 바꾸기
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime createAt;
     private String postImage;
 
